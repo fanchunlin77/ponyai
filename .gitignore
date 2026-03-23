@@ -1,0 +1,26 @@
+# Python byte-code and caches
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Egg / build artefacts
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDEs
+.idea/
+.vscode/
+*.sw[op]

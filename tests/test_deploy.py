@@ -1,6 +1,7 @@
 """Tests for ponyai.deploy.canary."""
 
 import pandas as pd
+import pytest
 
 from ponyai.deploy.canary import CanaryRouter
 from ponyai.strategy.base import Signal, Strategy
@@ -52,8 +53,6 @@ class TestCanaryRouter:
 
     def test_set_weight_validation(self) -> None:
         router = CanaryRouter(baseline=AlwaysBuy(), canary=AlwaysSell())
-        import pytest
-
         with pytest.raises(ValueError):
             router.set_canary_weight(1.5)
         with pytest.raises(ValueError):

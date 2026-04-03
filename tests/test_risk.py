@@ -2,6 +2,7 @@
 
 import numpy as np
 import pandas as pd
+import pytest
 
 from ponyai.risk.metrics import compute_metrics
 
@@ -36,7 +37,3 @@ class TestComputeMetrics:
         equity = pd.Series(100 * np.cumprod(1 + returns))
         m = compute_metrics(equity)
         assert m["sharpe_ratio"] > 0
-
-
-# Need pytest for approx
-import pytest  # noqa: E402

@@ -1,3 +1,16 @@
+Metadata-Version: 2.4
+Name: ponyai
+Version: 0.1.0
+Summary: PonyAI Quantitative Trading Platform
+License: MIT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: pandas>=2.0
+Requires-Dist: numpy>=1.24
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0; extra == "dev"
+
 # PonyAI — Quantitative Trading Platform
 
 A modular quantitative trading system model built in Python.

@@ -1,0 +1,49 @@
+Metadata-Version: 2.4
+Name: ponyai
+Version: 0.1.0
+Summary: PonyAI Quantitative Trading Platform
+License: MIT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: pandas>=2.0
+Requires-Dist: numpy>=1.24
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0; extra == "dev"
+
+# PonyAI — Quantitative Trading Platform
+
+A modular quantitative trading system model built in Python.
+
+## Architecture
+
+```
+ponyai/
+├── data/       # DataFeed with SHA-256 integrity verification
+├── strategy/   # Abstract Strategy base class
+├── broker/     # PaperBroker, Portfolio, Fill (with PnL tracking)
+├── backtest/   # BacktestEngine orchestrating data → strategy → broker
+├── risk/       # Performance metrics (Sharpe, drawdown, Calmar, …)
+└── deploy/     # CanaryRouter for gradual strategy roll-out
+```
+
+## Quick Start
+
+```bash
+# Install in development mode
+pip install -e ".[dev]"
+
+# Run tests
+pytest
+```
+
+## Modules
+
+| Module | Key Classes | Purpose |
+|--------|------------|---------|
+| `data` | `DataFeed` | Load CSV/Parquet data with SHA-256 checksum versioning |
+| `strategy` | `Strategy` (ABC), `Signal` | Define trading logic via `on_bar` / `on_init` / `on_finish` |
+| `broker` | `PaperBroker`, `Portfolio`, `Fill` | Simulated execution, position & cash tracking |
+| `backtest` | `BacktestEngine`, `BacktestResult` | Run strategy over historical data, collect equity curve |
+| `risk` | `compute_metrics` | Sharpe ratio, max drawdown, annual return, Calmar ratio |
+| `deploy` | `CanaryRouter` | A/B-style gradual deployment of new strategies |
